@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Population below 2 Lakh</title>
+    <script>
+        function myfunc(){
+            var xmlHTTP = new XMLHttpRequest();
+            xmlHTTP.open('GET','https://restcountries.com/v3.1/all',true);
+            xmlHTTP.send();
+
+            xmlHTTP.onload = function(){
+                var data = JSON.parse(this.response);
+                const popu = data.filter((element)=>{
+                return element.population<200000;
+                })
+                console.log(popu);}
+                }
+    </script>
+</head>
+<body>
+    <h2> Hellow User!!!, Welcome </h2>
+    <div id = "users"> </div>
+    <button onclick="myfunc()"> Click Here For Details </button>
+</body>
+</html>

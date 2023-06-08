@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Country US Dollars as currency</title>
+    <script>
+        function myfunc()
+        {
+        var xmlHTTP = new XMLHttpRequest();
+            xmlHTTP.open('GET','https://restcountries.com/v3.1/all',true);
+            xmlHTTP.send();
+
+            xmlHTTP.onload = function() {
+         var data = JSON.parse(this.response);
+         var doller = data.filter((value) => {
+            for (var i in value.currencies) {
+            if (i === "Unites States Dollar") {
+          return true; }}
+          }).map((value) => value.currencies.name);
+         console.log(doller);
+  }
+}
+    </script>
+</head>
+<body>
+    <h2> Hellow User!!!, Welcome </h2>
+    <div id = "users"> </div>
+    <button onclick="myfunc()"> Click Here For Details</button>
+</body>
+</html>
